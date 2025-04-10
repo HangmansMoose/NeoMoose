@@ -1,6 +1,3 @@
--- Plugin: Lualine
--- https://github.com/rafi/vim-config
-
 return {
 
 	-----------------------------------------------------------------------------
@@ -8,21 +5,20 @@ return {
 	-- NOTE: This extends
 	-- $XDG_DATA_HOME/nvim/lazy/LazyVim/lua/lazyvim/plugins/ui.lua
 	{
-		'nvim-lualine/lualine.nvim',
-		enabled = not vim.g.started_by_firenvim,
+		"nvim-lualine/lualine.nvim",
 		opts = function()
 			local icons = LazyVim.config.icons
 
 			local function is_plugin_window()
-				return vim.bo.buftype ~= ''
+				return vim.bo.buftype ~= ""
 			end
 
 			local function is_file_window()
-				return vim.bo.buftype == ''
+				return vim.bo.buftype == ""
 			end
 
 			local function is_not_prompt()
-				return vim.bo.buftype ~= 'prompt'
+				return vim.bo.buftype ~= "prompt"
 			end
 
 			local function is_min_width(min)
@@ -33,15 +29,15 @@ return {
 			end
 
 			local active = {
-				bg = Snacks.util.color('StatusLine', 'bg'),
-				fg = Snacks.util.color('StatusLine'),
+				bg = Snacks.util.color("StatusLine", "bg"),
+				fg = Snacks.util.color("StatusLine"),
 			}
 			local inactive = {
-				bg = Snacks.util.color('StatusLineNC', 'bg'),
-				fg = Snacks.util.color('StatusLineNC'),
+				bg = Snacks.util.color("StatusLineNC", "bg"),
+				fg = Snacks.util.color("StatusLineNC"),
 			}
 
-			local ColorUtil = require('HangmansMoose.util.color')
+			local ColorUtil = require("HangmansMoose.util.color")
 			local theme = {
 				normal = {
 					a = active,
@@ -78,46 +74,46 @@ return {
 					globalstatus = vim.o.laststatus == 3,
 					disabled_filetypes = {
 						statusline = {
-							'dashboard',
-							'alpha',
-							'ministarter',
-							'snacks_dashboard',
+							"dashboard",
+							"alpha",
+							"ministarter",
+							"snacks_dashboard",
 						},
 					},
 				},
-				extensions = { 'lazy', 'fzf', 'man' },
+				extensions = { "lazy", "fzf", "man" },
 				sections = {
 					lualine_a = {
 						-- Left edge block.
 						{
 							function()
-								return '▊'
+								return "▊"
 							end,
 							padding = 0,
-							separator = '',
+							separator = "",
 							color = function()
-								local hl = is_file_window() and 'Statement' or 'Function'
+								local hl = is_file_window() and "Statement" or "Function"
 								return { fg = Snacks.util.color(hl) }
 							end,
 						},
 						-- Readonly/zoomed/hash symbol.
 						{
 							padding = { left = 1, right = 0 },
-							separator = '',
+							separator = "",
 							cond = is_file_window,
 							function()
-								if vim.bo.buftype == '' and vim.bo.readonly then
+								if vim.bo.buftype == "" and vim.bo.readonly then
 									return icons.status.filename.readonly
-								elseif vim.t['zoomed'] then
+								elseif vim.t["zoomed"] then
 									return icons.status.filename.zoomed
 								end
-								return ''
+								return ""
 							end,
 						},
 						{
-							'branch',
+							"branch",
 							cond = is_file_window,
-							icon = '', --  
+							icon = "", --  
 							padding = 1,
 							on_click = function()
 								vim.cmd([[Telescope git_branches]])
@@ -125,15 +121,15 @@ return {
 						},
 						LazyVim.lualine.root_dir(),
 						{
-							require('rafi.util.lualine').plugin_title(),
+							require("HangmansMoose.util.lualine_util").plugin_title(),
 							padding = { left = 0, right = 1 },
 							cond = is_plugin_window,
 						},
 						{
-							'filetype',
+							"filetype",
 							icon_only = true,
 							padding = { left = 1, right = 0 },
-							separator = { right = '' },
+							separator = { right = "" },
 							cond = is_file_window,
 						},
 					},
@@ -141,42 +137,41 @@ return {
 						-- File-path, toggle navic structure when clicked.
 						{
 							LazyVim.lualine.pretty_path({ length = 5 }),
-							color = { fg = '#D7D7BC' },
-							separator = '',
+							color = { fg = "#D7D7BC" },
+							separator = "",
 							cond = is_file_window,
 							on_click = function()
 								vim.g.trouble_lualine = not vim.g.trouble_lualine
-								require('lualine').refresh()
+								require("lualine").refresh()
 							end,
 						},
 						-- Show buffer number in terminal
 						{
-							separator = '',
+							separator = "",
 							padding = { left = 1, right = 1 },
 							function()
-								local s = vim.b.term_title or ''
-								local n = vim.b.toggle_number or ''
+								local s = vim.b.term_title or ""
+								local n = vim.b.toggle_number or ""
 								if vim.b.snacks_terminal then
 									n = vim.b.snacks_terminal.id
 								end
-								return s .. (n and ' #' .. n or '')
+								return s .. (n and " #" .. n or "")
 							end,
 							cond = function()
-								return vim.bo.buftype == 'snacks_terminal'
-									or vim.bo.buftype == 'terminal'
+								return vim.bo.buftype == "snacks_terminal" or vim.bo.buftype == "terminal"
 							end,
 						},
 						-- Quickfix/location list title
 						{
-							separator = '',
+							separator = "",
 							function()
-								if vim.fn.win_gettype() == 'loclist' then
+								if vim.fn.win_gettype() == "loclist" then
 									return vim.fn.getloclist(0, { title = 0 }).title
 								end
 								return vim.fn.getqflist({ title = 0 }).title
 							end,
 							cond = function()
-								return vim.bo.filetype == 'qf'
+								return vim.bo.filetype == "qf"
 							end,
 							padding = { left = 1, right = 0 },
 						},
@@ -184,14 +179,13 @@ return {
 						-- Whitespace trails
 						-- stylua: ignore
 						{
-							require('rafi.util.lualine').trails(),
+							require('HangmansMoose.util.lualine_util').trails(),
 							cond = is_file_window,
 							padding = { left = 1, right = 0 },
 							color = function() return { fg = Snacks.util.color('Identifier') } end,
 						},
-
 						{
-							'diagnostics',
+							"diagnostics",
 							symbols = {
 								error = icons.status.diagnostics.error,
 								warn = icons.status.diagnostics.warn,
@@ -204,24 +198,18 @@ return {
 						{
 							function()
 								if vim.v.hlsearch == 0 then
-									return ''
+									return ""
 								end
 
-								local ok, result =
-									pcall(vim.fn.searchcount, { maxcount = 999, timeout = 10 })
+								local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 10 })
 								if not ok or next(result) == nil or result.current == 0 then
-									return ''
+									return ""
 								end
 
 								local denominator = math.min(result.total, result.maxcount)
-								return string.format(
-									'/%s [%d/%d]',
-									vim.fn.getreg('/'),
-									result.current,
-									denominator
-								)
+								return string.format("/%s [%d/%d]", vim.fn.getreg("/"), result.current, denominator)
 							end,
-							separator = '',
+							separator = "",
 							padding = { left = 1, right = 0 },
 						},
 					},
@@ -230,7 +218,7 @@ return {
 						Snacks.profiler.status(),
 						-- Diff (git)
 						{
-							'diff',
+							"diff",
 							symbols = {
 								added = icons.status.git.added,
 								modified = icons.status.git.modified,
@@ -302,7 +290,7 @@ return {
 					},
 					lualine_y = {
 						{
-							require('rafi.util.lualine').filemedia(),
+							require("HangmansMoose.util.lualine_util").filemedia(),
 							padding = 1,
 							cond = function()
 								return is_min_width(70)
@@ -316,9 +304,9 @@ return {
 						{
 							function()
 								if is_file_window() then
-									return '%l/%2c%4p%%'
+									return "%l/%2c%4p%%"
 								end
-								return '%l/%L'
+								return "%l/%L"
 							end,
 							cond = is_not_prompt,
 							padding = 1,
@@ -328,10 +316,10 @@ return {
 				inactive_sections = {
 					lualine_a = {
 						{
-							'filetype',
+							"filetype",
 							icon_only = true,
 							colored = false,
-							separator = '',
+							separator = "",
 							padding = { left = 1, right = 0 },
 						},
 						{
@@ -356,15 +344,15 @@ return {
 
 			-- Show code structure in statusline.
 			-- Allow it to be overriden for some buffer types (see autocmds).
-			if vim.g.trouble_lualine and LazyVim.has('trouble.nvim') then
-				local trouble = require('trouble')
+			if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
+				local trouble = require("trouble")
 				local symbols = trouble.statusline({
-					mode = 'symbols',
+					mode = "symbols",
 					groups = {},
 					title = false,
 					filter = { range = true },
-					format = '{kind_icon}{symbol.name:Normal}',
-					hl_group = 'lualine_c_normal',
+					format = "{kind_icon}{symbol.name:Normal}",
+					hl_group = "lualine_c_normal",
 				})
 				table.insert(opts.sections.lualine_c, {
 					symbols and symbols.get,
