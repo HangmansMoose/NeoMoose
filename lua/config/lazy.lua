@@ -17,7 +17,26 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { 
+      "LazyVim/LazyVim", 
+      import = "lazyvim.plugins", 
+      --opts = { 
+       -- colorscheme = "jellybeans",
+      --},
+    },
+
+    -- LazyExtras 
+    { import = "lazyvim.plugins.extras.lang.rust" },
+    { import = "lazyvim.plugins.extras.lang.clangd" },
+    { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.omnisharp" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.toml" },
+    { import = "lazyvim.plugins.extras.lang.zig" },
+    --{ import = "lazyvim.plugins.editor.neo-tree" },
+    --{ import = "lazyvim.plugins.editor.overseer" },
+    --{ import = "lazyvim.plugins.coding.blink" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -30,10 +49,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  -- install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
-    enabled = true, -- check for plugin updates periodically
-    notify = false, -- notify on update
+    enabled = false, -- check for plugin updates periodically
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -42,7 +59,7 @@ require("lazy").setup({
         "gzip",
         -- "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
@@ -50,4 +67,6 @@ require("lazy").setup({
       },
     },
   },
+  debug = false,
+  
 })
