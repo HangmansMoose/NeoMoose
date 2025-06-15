@@ -3,7 +3,7 @@
 -- Add any additional options before
 vim.opt.list = false
 vim.opt.statuscolumn = ""
-
+vim.opt.signcolumn = "no"
 -- LazyVim auto format
 vim.g.autoformat = false
 vim.g.snacks_animate = false
@@ -20,6 +20,8 @@ vim.g.ai_cmp = false
 vim.g.vscode = false
 
 vim.opt.autowrite = false
+vim.opt.number = true 
+vim.opt.relativenumber = true
 
 local toggle_header_cpp = function()
   local baseFilePath = vim.fn.expand("%:r")

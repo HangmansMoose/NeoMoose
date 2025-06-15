@@ -32,9 +32,10 @@ return {
             },
           },
         },
-      overrides = function()
+      overrides = function(colors)
         return {
           ['@variable.builtin'] = { italic = false },
+          Cursor = { fg = "#303030", bg = "#00ff33" }
         }
       end,
     }  

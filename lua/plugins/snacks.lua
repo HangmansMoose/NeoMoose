@@ -14,20 +14,20 @@ return {
       shell = "pwsh -NoLogo",
     },
     --bigfile = { enabled = false },
-    --dashboard = { enabled = true },
-    explorer = { enabled = false },
+    dashboard = { enabled = true },
+    explorer = { enabled = true },
     --indent = { enabled = false },
-    --notifier = { enabled = true },
+    notifier = { enabled = true },
     --quickfile = { enabled = false },
     --scope = { enabled = true },
     --scratch = { enabled = true },
     --scroll = { enabled = false },
     --statuscolumn = { enabled = false },
     --words = { enabled = false },
-    --input = {
+    input = {
     -- use noice instead
-    -- enabled = false,
-    --}
+     enabled = false,
+    }
   },
 }
 

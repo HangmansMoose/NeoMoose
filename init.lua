@@ -7,7 +7,7 @@ if vim.g.neovide then
   vim.g.neovide_scroll_animation_length = 0.15
   vim.g.neovide_refresh_rate = 144
   vim.g.neovide_position_animation_length = 0
-  vim.o.guifont = "CaskaydiaMono_Nerd_Font:h14:#e-subpixelantialias"
+  vim.o.guifont = "CaskaydiaMono_Nerd_Font:h15:#e-subpixelantialias"
   vim.g.neovide_opacity = 1.00
   vim.g.neovide_normal_opacity = 1.00
   vim.g.neovide_remember_window_size = true
@@ -16,7 +16,7 @@ end
 
 -- TODO: need to move these into their respective files as part of the setup.
 
---vim.cmd'colorscheme jellybeans'
+-- vim.cmd'colorscheme jellybeans'
 
 --local function set_hl(group, values)
 --  vim.api.nvim_set_hl(0, group, values)
