@@ -18,9 +18,9 @@ end
 
 -- vim.cmd'colorscheme jellybeans'
 
---local function set_hl(group, values)
---  vim.api.nvim_set_hl(0, group, values)
---end
+local function set_hl(group, values)
+  vim.api.nvim_set_hl(0, group, values)
+end
 --
 ----set_hl("CursorLine", { bg = "#111144" })
 ----set_hl("Cursor", { bg = "#00ff33", fg = "#303030" })
@@ -30,13 +30,13 @@ end
 --
 --if vim.g.colors_name == "naysayer" then
 --  --if vim.g.neovide then
---  set_hl("Normal", { bg = "#1b1b1b" })
---  set_hl("EndofBuffer", { bg = "#1b1b1b" })
---  set_hl("LineNr", { bg = "#1b1b1b", fg = "#bdb395" })
---  set_hl("NormalFloat", { bg = "#1b1b1b" })
---  set_hl("NormalPopup", { bg = "#1b1b1b" })
---  set_hl("NormalPopOver", { bg = "#1b1b1b" })
---  set_hl("SignColumn", { bg = "#1b1b1b" })
+--  set_hl("Normal", { bg = "#151515" })
+--  set_hl("EndofBuffer", { bg = "#151515" })
+--  set_hl("LineNr", { bg = "#151515", fg = "#bdb395" })
+--  set_hl("NormalFloat", { bg = "#151515" })
+--  set_hl("NormalPopup", { bg = "#151515" })
+--  set_hl("NormalPopOver", { bg = "#151515" })
+--  set_hl("SignColumn", { bg = "#151515" })
 --  --vim.cmd 'hi Normal guibg=#1a1a1a'
 --  --vim.cmd 'hi NormalNC guibg=#1a1a1a'
 --  --vim.cmd 'hi Pmenu guibg=#1c1c1c'
@@ -50,13 +50,13 @@ end
 --  --end
 --elseif vim.g.colors_name == "sonokai" then
 --  --if vim.g.neovide then
---  set_hl("Normal", { bg = "#1b1b1b" })
---  set_hl("EndofBuffer", { bg = "#1b1b1b" })
---  set_hl("LineNr", { bg = "#1b1b1b", fg = "#bdb395" })
---  set_hl("NormalFloat", { bg = "#1b1b1b" })
---  set_hl("NormalPopup", { bg = "#1b1b1b" })
---  set_hl("NormalPopOver", { bg = "#1b1b1b" })
---  set_hl("SignColumn", { bg = "#1b1b1b" })
+--  set_hl("Normal", { bg = "#151515" })
+--  set_hl("EndofBuffer", { bg = "#151515" })
+--  set_hl("LineNr", { bg = "#151515", fg = "#bdb395" })
+--  set_hl("NormalFloat", { bg = "#151515" })
+--  set_hl("NormalPopup", { bg = "#151515" })
+--  set_hl("NormalPopOver", { bg = "#151515" })
+--  set_hl("SignColumn", { bg = "#151515" })
 --  --vim.cmd 'hi Normal guibg=#1a1a1a'
 --  --vim.cmd 'hi NormalNC guibg=#1a1a1a'
 --  --vim.cmd 'hi Pmenu guibg=#1c1c1c'
@@ -68,21 +68,19 @@ end
 --  --  vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
 --  --  vim.cmd("hi Cursor guibg=#00ff33 guifg=#303030")
 --  --end
---elseif vim.g.colors_name == "night-owl" then
+if vim.g.colors_name == "night-owl" then
 --  --if vim.g.neovide then
---  set_hl("Normal", { bg = "#1b1b1b" })
---  set_hl("EndofBuffer", { bg = "#1b1b1b" })
---  set_hl("LineNr", { bg = "#1b1b1b", fg = "#bdb395" })
---  set_hl("NormalFloat", { bg = "#1b1b1b" })
---  set_hl("NormalPopup", { bg = "#1b1b1b" })
---  set_hl("NormalPopOver", { bg = "#1b1b1b" })
---  set_hl("SignColumn", { bg = "#1b1b1b" })
---  --vim.cmd 'hi Normal guibg=#1a1a1a'
---  --vim.cmd 'hi NormalNC guibg=#1a1a1a'
---  --vim.cmd 'hi Pmenu guibg=#1c1c1c'
---  set_hl("SnacksPicker", { bg = "#1a1a1a" })
---  set_hl("SnacksPickerBorder", { bg = "#1a1a1a" })
---  --vim.cmd 'hi Cursor guibg=#00ff33 guifg=#303030'
+  set_hl("Normal", { bg = "#151515" })
+  set_hl("EndofBuffer", { bg = "#151515" })
+  set_hl("LineNr", { bg = "#151515", fg = "#bdb395" })
+  set_hl("NormalFloat", { bg = "#151515" })
+  set_hl("NormalPopup", { bg = "#151515" })
+  set_hl("NormalPopOver", { bg = "#151515" })
+  set_hl("SignColumn", { bg = "#151515" })
+  set_hl("SnacksPicker", { bg = "#1a1a1a" })
+  set_hl("SnacksPickerBorder", { bg = "#1a1a1a" })
+  --vim.cmd 'hi Cursor guibg=#00ff33 guifg=#303030'
+end
 --  --else
 --  --  vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 --  --  vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")

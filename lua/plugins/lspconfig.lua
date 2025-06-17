@@ -16,17 +16,6 @@ return {
             },
           },
         },
-        pyright = {},
-        omnisharp = {
-          handlers = {
-            ["textDocument/definition"] = function(...)
-              return require("omnisharp_extended").handler(...)
-            end,
-          },
-          enable_roslyn_analyzers = true,
-          organize_imports_on_format = true,
-          enable_import_completion = true,
-        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -76,11 +65,13 @@ return {
   },
   {
     'mason-org/mason.nvim',
-    opts = {
-      ensure_installed = {
-        "codelldb",
-        "stylua"
-      }
-    }
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "codelldb" })
+      vim.list_extend(opts.ensure_installed, { "stylua" })
+      if diagnostics == "bacon-ls" then
+        vim.list_extend(opts.ensure_installed, { "bacon" })
+      end
+    end,
   },
 }

@@ -6,4 +6,6 @@ return {
   { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
   { "windwp/nvim-ts-autotag", enabled = false },
   { "saghen/blink.nvim", enabled = false },
+  { "echasnovski/mini.indentscope", enabled = false }
+  -- { "mrcjkb/rustaceanvim", enabled = false },
 } 

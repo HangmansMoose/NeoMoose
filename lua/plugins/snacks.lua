@@ -7,7 +7,7 @@ return {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-    image = { enebled = false },
+    image = { enabled = false },
     animate = { enabled = false },
     terminal = {
       enabled = true,
@@ -16,14 +16,14 @@ return {
     --bigfile = { enabled = false },
     dashboard = { enabled = true },
     explorer = { enabled = true },
-    --indent = { enabled = false },
+    indent = { enabled = false },
     notifier = { enabled = true },
     --quickfile = { enabled = false },
-    --scope = { enabled = true },
+    scope = { enabled = false },
     --scratch = { enabled = true },
-    --scroll = { enabled = false },
-    --statuscolumn = { enabled = false },
-    --words = { enabled = false },
+    scroll = { enabled = false },
+    statuscolumn = { enabled = false },
+    words = { enabled = false },
     input = {
     -- use noice instead
      enabled = false,

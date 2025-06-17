@@ -1,7 +1,7 @@
 return {
 
   { import = "grs.colorschemes.naysayer"},
-  -- { import = "grs.colorschemes.night_owl"},
+  { import = "grs.colorschemes.night_owl"},
   { import = "grs.colorschemes.solarized-osaka"},
   { import = "grs.colorschemes.gruvbox"},
   { import = "grs.colorschemes.doom-one"},
@@ -11,7 +11,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "night-owl",
     },
   },
 }
